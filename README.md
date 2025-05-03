@@ -46,11 +46,11 @@ python Recommender/app.py
 
 ### LibraryServer (ASP.NET Core Web API)
 
-Navigate to the `LibraryServer/LibraryServer` folder.
 Create a simple database with tables similar to the screenshot:
 ![DB Maket](docs/screenshots/DB_maket.png)
 
 Link DB to the project through Connection string in appsettings.json.
+Navigate to the `LibraryServer/LibraryServer` folder.
 Open the project in Visual Studio or use the command line to run the application:
 
 ```bash
