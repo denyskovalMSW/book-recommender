@@ -1,0 +1,22 @@
+# .NET
+**/bin/
+**/obj/
+.vs/
+*.user
+*.suo
+
+# Python
+__pycache__/
+*.py[cod]
+*.env
+*.venv
+env/
+venv/
+.venv/
+.idea/
+Lib/
+Scripts/
+
+# OS
+.DS_Store
+Thumbs.db

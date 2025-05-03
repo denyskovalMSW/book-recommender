@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реєстрація - Secret Shelf Library</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="link_logo.png">
+    <style>
+        /* Додаємо стилі для форми */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        label {
+            margin-bottom: 5px;
+        }
+        input {
+            padding: 8px;
+            font-size: 1em;
+        }
+        button {
+            padding: 10px;
+            background-color: #004d4d;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        button:hover {
+            background-color: #007373;
+        }
+
+        /* Стилі для модального вікна */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4); 
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; 
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="logo.png" alt="Library Logo">
+                <span>Secret Shelf Library</span>
+            </div>
+            <div class="user-actions">
+                <a href="login.html">Вхід</a> | <a href="register.html">Реєстрація</a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="books.html">Перегляд книг</a></li>
+                <li><a href="account.html">Мій кабінет</a></li>
+                <li><a href="services.html">Сервіси</a></li>
+                <li><a href="news.html">Новини</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="main-content">
+            <h1>Реєстрація</h1>
+            <form id="registrationForm" action="/register" method="POST">
+                <label for="username">Ім'я користувача:</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="email">Електронна пошта:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required>
+                
+                <button type="submit">Зареєструватися</button>
+            </form>
+        </div>
+    </main>
+    
+    <!-- Модальне вікно для повідомлень -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="notification" style="color: red;"></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Всі права захищено © 2013 - 2024 Secret Shelf Library</p>
+        <div class="footer-contact">
+            <a href="#">Контакти</a> | <a href="#">Соцмережі</a>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript для обробки реєстрації
+        document.getElementById("registrationForm").addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const response = await fetch("/register", {
+                method: "POST",
+                body: formData
+            });
+
+            const data = await response.json();
+
+            const modal = document.getElementById("myModal");
+            const notification = document.getElementById("notification");
+            notification.textContent = data.message;
+
+            if (data.success) {
+                modal.style.display = "block"; 
+                // Затримка перед перенаправленням на сторінку входу
+                setTimeout(() => {
+                    window.location.href = "/login.html"; 
+                    }, 3000);
+
+            } 
+            else {
+                modal.style.display = "block"; 
+            }
+        });
+
+        // Закриття модального вікна
+        document.querySelector(".close").onclick = function() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>

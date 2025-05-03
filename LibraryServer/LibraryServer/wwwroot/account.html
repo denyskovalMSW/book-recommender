@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мій кабінет - Secret Shelf Library</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="link_logo.png">
+    <style>
+        /* Додаткові стилі для сторінки */
+        .account-info {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .account-info h2 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .account-info p {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+
+        .favorite-books {
+            margin-top: 20px;
+        }
+
+        .favorite-books h3 {
+            font-size: 1.3em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .favorite-books ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .favorite-books ul li {
+            background-color: #eef;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="logo.png" alt="Library Logo">
+                <span>Secret Shelf Library</span>
+            </div>
+            <div class="user-actions">
+                <!-- Цей блок буде заповнено JavaScript'ом -->
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="books.html">Перегляд книг</a></li>
+                <li><a href="account.html">Мій кабінет</a></li>
+                <li><a href="services.html">Сервіси</a></li>
+                <li><a href="news.html">Новини</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="main-content">
+            <h1>Мій кабінет</h1>
+            <h2 id="username">Тут буде ваш нікнейм</h2>
+            <p>Тут ви зможете переглядати ваші улюблені книги, підписки та іншу інформацію.</p>
+            <div class="account-info">
+                <h2>Інформація про акаунт</h2>
+                <p id="sub_status"><strong>Статус читацького квитка:</strong> Неактивний</p>
+                <div class="favorite-books">
+                    <h3>Улюблені книги:</h3>
+                    <ul>
+                        <li>Поки що немає улюблених книг.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Всі права захищено © 2013 - 2024 Secret Shelf Library</p>
+        <div class="footer-contact">
+            <a href="#">Контакти</a> | <a href="#">Соцмережі</a>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
